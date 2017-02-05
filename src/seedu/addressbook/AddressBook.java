@@ -77,8 +77,8 @@ public class AddressBook {
     private static final String MESSAGE_INVALID_COMMAND_FORMAT = "Invalid command format: %1$s " + LS + "%2$s";
     private static final String MESSAGE_INVALID_FILE = "The given file name [%1$s] is not a valid file name!";
     private static final String MESSAGE_INVALID_PROGRAM_ARGS = "Too many parameters! Correct program argument format:"
-                                                            + LS + "\tjava AddressBook"
-                                                            + LS + "\tjava AddressBook [custom storage file path]";
+    		+ LS + "\tjava AddressBook"
+            + LS + "\tjava AddressBook [custom storage file path]";
     private static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The person index provided is invalid";
     private static final String MESSAGE_INVALID_STORAGE_FILE_CONTENT = "Storage file has invalid content";
     private static final String MESSAGE_PERSON_NOT_IN_ADDRESSBOOK = "Person could not be found in address book";
@@ -96,18 +96,18 @@ public class AddressBook {
     private static final String PERSON_DATA_PREFIX_EMAIL = "e/";
 
     private static final String PERSON_STRING_REPRESENTATION = "%1$s " // name
-                                                            + PERSON_DATA_PREFIX_PHONE + "%2$s " // phone
-                                                            + PERSON_DATA_PREFIX_EMAIL + "%3$s"; // email
+            + PERSON_DATA_PREFIX_PHONE + "%2$s " // phone
+            + PERSON_DATA_PREFIX_EMAIL + "%3$s"; // email
     private static final String COMMAND_ADD_WORD = "add";
     private static final String COMMAND_ADD_DESC = "Adds a person to the address book.";
     private static final String COMMAND_ADD_PARAMETERS = "NAME "
-                                                      + PERSON_DATA_PREFIX_PHONE + "PHONE_NUMBER "
-                                                      + PERSON_DATA_PREFIX_EMAIL + "EMAIL";
+            + PERSON_DATA_PREFIX_PHONE + "PHONE_NUMBER "
+            + PERSON_DATA_PREFIX_EMAIL + "EMAIL";
     private static final String COMMAND_ADD_EXAMPLE = COMMAND_ADD_WORD + " John Doe p/98765432 e/johnd@gmail.com";
 
     private static final String COMMAND_FIND_WORD = "find";
     private static final String COMMAND_FIND_DESC = "Finds all persons whose names contain any of the specified "
-                                        + "keywords (case-sensitive) and displays them as a list with index numbers.";
+            + "keywords (case-sensitive) and displays them as a list with index numbers.";
     private static final String COMMAND_FIND_PARAMETERS = "KEYWORD [MORE_KEYWORDS]";
     private static final String COMMAND_FIND_EXAMPLE = COMMAND_FIND_WORD + " alice bob charlie";
 
@@ -658,7 +658,8 @@ public class AddressBook {
      * @return formatted listing message with index
      */
     private static String getIndexedPersonListElementMessage(int visibleIndex, String[] person) {
-        return String.format(MESSAGE_DISPLAY_LIST_ELEMENT_INDEX, visibleIndex) + getMessageForFormattedPersonData(person);
+		return String.format(MESSAGE_DISPLAY_LIST_ELEMENT_INDEX, visibleIndex)
+				+ getMessageForFormattedPersonData(person);
     }
 
     /**
@@ -688,9 +689,9 @@ public class AddressBook {
      * @param lastVisibleIndex displayed index from last shown person listing
      * @return the actual person object in the last shown person listing
      */
-    private static String[] getPersonByLastVisibleIndex(int lastVisibleIndex) {
-       return latestPersonListingView.get(lastVisibleIndex - DISPLAYED_INDEX_OFFSET);
-    }
+	private static String[] getPersonByLastVisibleIndex(int lastVisibleIndex) {
+		return latestPersonListingView.get(lastVisibleIndex - DISPLAYED_INDEX_OFFSET);
+	}
 
 
     /*
@@ -924,7 +925,7 @@ public class AddressBook {
                 extractNameFromPersonString(encoded),
                 extractPhoneFromPersonString(encoded),
                 extractEmailFromPersonString(encoded)
-        );
+		);
         // check that the constructed person is valid
         return isPersonDataValid(decodedPerson) ? Optional.of(decodedPerson) : Optional.empty();
     }
