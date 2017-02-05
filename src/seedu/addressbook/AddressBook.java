@@ -1161,7 +1161,7 @@ public class AddressBook {
     }
 
     /**
-     * Splits a source string into the list of substrings that w=ere separated by whitespace.
+     * Splits a source string into the list of substrings that were separated by whitespace.
      *
      * @param toSplit source string
      * @return split by whitespace
