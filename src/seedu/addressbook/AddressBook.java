@@ -40,6 +40,10 @@ public class AddressBook {
      * Default file path used if the user doesn't provide the file name.
      */
     private static final String DEFAULT_STORAGE_FILEPATH = "addressbook.txt";
+    
+    private static final int INPUT_INVALID_STORAGE_FILE = 2;
+    private static final int INPUT_VALID_STORAGE_FILE = 1;
+    private static final int INPUT_NO_STORAGE_FILE = 0;
 
     /**
      * Version info of the program.
@@ -257,16 +261,16 @@ public class AddressBook {
      * @param args full program arguments passed to application main method
      */
     private static void processProgramArgs(String[] args) {
-        if (args.length >= 2) {
+        if (args.length >= INPUT_INVALID_STORAGE_FILE) {
             showToUser(MESSAGE_INVALID_PROGRAM_ARGS);
             exitProgram();
         }
 
-        if (args.length == 1) {
+        if (args.length == INPUT_VALID_STORAGE_FILE) {
             setupGivenFileForStorage(args[0]);
         }
 
-        if(args.length == 0) {
+        if(args.length == INPUT_NO_STORAGE_FILE) {
             setupDefaultFileForStorage();
         }
     }
