@@ -1156,7 +1156,8 @@ public class AddressBook {
      * @return  string without the sign
      */
     private static String removePrefix(String fullString, String prefix) {
-        return fullString.replace(prefix, "");
+    	String regex = '^' + prefix;
+        return fullString.replaceFirst(regex, "");
     }
 
     /**
